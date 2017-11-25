@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="https://predica.pl/">
+                <img src="../assets/brand.png" alt="Predica">
+            </a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <div class="form-group">
+          <label for="">search</label>
+          <input [(ngModel)]="term" (ngModelChange)="search('name',$event)" type="text" class="form-control">
+
+        </div>
+      </li>
+    </ul>
+    </div>
+
+</nav>
+<main>
+
+  <div class="container">
+    <div class="row toolkit-box">
+      <p *ngIf="categories.length == 0" class="text-info text-center">No Entries</p>
+      <div class="col-md-3 col-sm-4 col-xs-6" *ngFor="let category of categories">
+        <div class="category">
+
+          <div class="title">{{category.name}}</div>
+          <ul class="links">
+            <li *ngFor="let link of category.links"><a target="blank" href="{{link.url}}">{{link.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
